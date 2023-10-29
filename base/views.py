@@ -9,6 +9,31 @@ class BookListView(generic.ListView):
     context_object_name = "books"
     template_name = "base/book_list.html"
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        title = self.request.GET.get("title")
+        author = self.request.GET.get("author")
+        min_rating = self.request.GET.get("min_rating")
+        publication_date = self.request.GET.get("publication_date")
+
+        if title:
+            queryset = queryset.filter(title__icontains=title)
+        if author:
+            queryset = queryset.filter(author__icontains=author)
+        if min_rating:
+            queryset = queryset.filter(rating__gte=min_rating)
+        if publication_date:
+            queryset = queryset.filter(publication_date=publication_date)
+
+        return queryset
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["count"] = context["books"].count()
+        # context["search-area"] = self.request.GET.get("search-area")
+        return context
+
 
 class BookDetailView(generic.DetailView):
     model = Book
