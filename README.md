@@ -75,3 +75,12 @@ Book detail
 ![(7) book-detail.png](screenshots%2F%287%29%20book-detail.png)
 
 ## Screenshots of Library API features
+
+View all books in the list
+![(9) book-list.png](screenshots%2F%289%29%20book-list.png)
+
+Add new book
+![(8) add-book.png](screenshots%2F%288%29%20add-book.png)
+
+View book's detail, delete, and update
+![(10) book-detail.png](screenshots%2F%2810%29%20book-detail.png)
