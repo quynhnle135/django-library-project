@@ -3,6 +3,6 @@ from . import views
 
 
 urlpatterns = [
-    path('books/', views.BookListAPIView.as_view()),
-    path('books/<int:pk>/', views.BookRetrieveUpdateDestroyAPIView.as_view()),
+    path('', views.BookListAPIView.as_view()),
+    path('<int:pk>/', views.BookRetrieveUpdateDestroyAPIView.as_view()),
 ]
