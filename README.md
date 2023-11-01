@@ -17,13 +17,40 @@ Additionally, a simple Django REST framework API with CRUD functionalities under
 ## Installation:
 Clone the repository
 
+```commandline
+git clone https://github.com/quynhnle135/django-library-project.git
+```
+
 Navigate to the project
+
+```commandline
+cd django-library-project
+```
 
 Set up a virtual environment
 
+```commandline
+# Install virtualenv if it's not installed
+python -m pip install virtualenv
+
+# Create a virtual environment in the project directory
+python -m venv env
+
+# Activate the virtual environment
+source env/bin/activate  # On Windows, use "env\Scripts\activate"
+```
+
 Install project dependencies
 
+```commandline
+pip install requirements.txt
+```
+
 Run the development server
+
+```commandline
+python3 manage.py runserver
+```
 
 ## Screenshots of Library features
 
