@@ -1,5 +1,14 @@
+{% extends 'base/main.html' %}
+{% block content %}
+
+<div class="header-bar">
+    <<a href="{% url 'book-list' %}">Back</a>
+</div>
+
 <form method="POST">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="Add">
+    <input class="button" type="submit" value="Add">
 </form>
+
+{% endblock content%}

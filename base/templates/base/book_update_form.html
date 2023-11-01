@@ -1,5 +1,16 @@
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Update">
-</form>
+{% extends "base/main.html" %}
+{% block content %}
+
+<div class="header-bar">
+      <a href="{% url 'book-list' %}">Back</a>
+</div>
+
+<div class="card-body">
+      <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input class="button" type="submit" value="Update">
+      </form>
+</div>
+
+{% endblock content %}

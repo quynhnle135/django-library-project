@@ -31,7 +31,7 @@ class BookListView(generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context["count"] = context["books"].count()
-        # context["search-area"] = self.request.GET.get("search-area")
+
         return context
 
 
@@ -51,7 +51,9 @@ class BookUpdateView(generic.UpdateView):
     model = Book
     fields = "__all__"
     template_name = "base/book_update_form.html"
-    success_url = reverse_lazy("book-list")
+
+    def get_success_url(self):
+        return reverse_lazy("book-detail", kwargs={'pk': self.object.pk})
 
 
 class BookDeleteView(generic.DeleteView):

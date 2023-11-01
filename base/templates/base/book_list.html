@@ -1,33 +1,44 @@
-<h1>Your book list</h1>
+{% extends 'base/main.html' %}
+{% block content %}
 
-<!--Search function-->
-<form method="get">
-    <input type="text" name="title" placeholder="Title">
-    <input type="text" name="author" placeholder="Author">
-    <input type="number" step="0.1" name="min_rating" placeholder="Minimum Rating">
-    <input type="date" name="publication_date" placeholder="Publication Date">
-    <button type="submit">Search</button>
-</form>
+<!--Header section-->
 
-{% if books %}
-<h3>You have {{count}} book{{count|pluralize:"s"}} in your list!</h3>
-{% for book in books %}
-<ul>
-    <li>Book title: {{book.title}}</li>
-    <li>Author: {{book.author}}</li>
-    <li>Publication date: {{book.publication_date}}</li>
-    <li>Summary: {{book.summary}}</li>
-    <li>Review: {{book.review}}</li>
-    <li>Rating: {{book.rating}}</li>
-</ul>
-<a href="{% url 'book-detail' book.id %}">View</a>
-<a href="{% url 'book-update' book.id %}">Update</a>
-<a href="{% url 'book-delete' book.id %}">Delete</a>
-{% endfor %}
-<br>
-<a href="{% url 'book-add' %}">Add more book</a>
-{% else %}
-<h3>Your book list is empty.</h3>
-<h4>Let's add new book!</h4>
-<a href="{% url 'book-add' %}">Add book</a>
-{% endif %}
+<div class="header-bar">
+    <div>
+        <h1>Have you read today?</h1>
+        {% if count == 0 %}
+        <h3>Your book list is empty</h3>
+        {% else %}
+        <h3>You have {{count}} book{{count|pluralize:"s"}} in your list!</h3>
+        {% endif %}
+    </div>
+    <a href="{% url 'book-add' %}">Add new book</a>
+</div>
+
+<!--Search box-->
+<div id="search-add-wrapper">
+    <form method="GET" style="display: flex;">
+        <input type="text" name="title" placeholder="Title">
+        <input type="text" name="author" placeholder="Author">
+        <input type="number" step="0.1" name="min_rating" placeholder="Minimum Rating">
+        <input type="date" name="publication_date" placeholder="Publication Date">
+        <button class="button" type="submit">Search</button>
+    </form>
+</div>
+
+<!--Book list section-->
+
+<div>
+    {% for book in books %}
+    <div class="book-wrapper" data-position="{{book.pk}}">
+        <div class="book-title">
+            <a href="{% url 'book-detail' book.id %}">{{book}} - {{book.author}}</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
+
+
+

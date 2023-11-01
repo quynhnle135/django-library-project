@@ -1,9 +1,20 @@
-<h1>Book Detail</h1>
-<ul>
-    <li>Book title: {{book.title}}</li>
-    <li>Author: {{book.author}}</li>
-    <li>Publication date: {{book.publication_date}}</li>
-    <li>Summary: {{book.summary}}</li>
-    <li>Review: {{book.review}}</li>
-    <li>Rating: {{book.rating}}</li>
-</ul>
+{% extends "base/main.html" %}
+{% block content %}
+
+<div class="header-bar">
+    <a href="{% url 'book-list' %}">Back</a>
+</div>
+<div class="card-body">
+    <h1>Book Detail</h1>
+    <h3>Title: {{book.title}}</h3>
+    <h3>Author: {{book.author}}</h3>
+    <h3>Publication date: {{book.publication_date}}</h3>
+    <h3>Summary: {{book.summary}}</h3>
+    <h3>Review: {{book.review}}</h3>
+    <h3>Rating: {{book.rating}}</h3>
+
+    <a style="color: green; padding: 0px" href="{% url 'book-update' book.id %}">Update</a>
+    <a style="color: red; padding: 20px;" href="{% url 'book-delete' book.id %}">Delete</a>
+</div>
+
+{% endblock content %}

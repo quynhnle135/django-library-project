@@ -1,6 +1,17 @@
-<form method="POST">
-  {% csrf_token %}
-  {{form.as_p}}
-  <p>Are you sure you want to remove {{book.title}} from your list?</p>
-  <input type="submit" value="Remove">
-</form>
+{% extends "base/main.html" %}
+{% block content %}
+
+<div class="header-bar">
+  <a href="{% url 'book-list' %}">Back</a>
+</div>
+
+<div class="card-body">
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <p>Are you sure you want to remove {{book.title}} from your list?</p>
+        <input class="button" type="submit" value="Confirm">
+    </form>
+</div>
+
+{% endblock content %}
