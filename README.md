@@ -53,5 +53,25 @@ python3 manage.py runserver
 ```
 
 ## Screenshots of Library features
+Book list before adding any book to it
+![(1) book-list-before.png](screenshots%2F%281%29%20book-list-before.png)
+
+Add new book
+![(2) add-book.png](screenshots%2F%282%29%20add-book.png)
+
+Book list after adding several books
+![(3)after-adding-books.png](screenshots%2F%283%29after-adding-books.png)
+
+Search books by title
+![(4) search-book-by-title.png](screenshots%2F%284%29%20search-book-by-title.png)
+
+Search books by author
+![(5) search-book-by-author.png](screenshots%2F%285%29%20search-book-by-author.png)
+
+Search books by rating
+![(6) search-book-by-rating.png](screenshots%2F%286%29%20search-book-by-rating.png)
+
+Book detail
+![(7) book-detail.png](screenshots%2F%287%29%20book-detail.png)
 
 ## Screenshots of Library API features
